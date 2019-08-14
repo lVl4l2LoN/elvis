@@ -2,7 +2,7 @@
     <title>Elvis Email PHP script</title>
     <body>
         <?php
-            $from = 'finding_marlon@yahoo.com';
+            $from = 'elmer@makemeelvis.com';
             $subject = $_POST['subject'];
             $text = $_POST['elvisEmail'];
 
