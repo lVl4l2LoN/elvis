@@ -1,21 +1,22 @@
 <html>
     <title>Elvis Email PHP script</title>
     <body>
+        <h1>Make Me Elvis</h1>
         <?php
             $from = 'elmer@makemeelvis.com';
             $subject = $_POST['subject'];
             $text = $_POST['elvisEmail'];
             $output_form = false;
             if(empty($subject)&& empty($text)){
-                echo'The subject and body are both empty. <br> <a href="sendEmail.html">Go back</a>';
+                echo'The subject and body are both empty.';
                 $output_form = true;
             }
             if(!(empty($subject))&& empty($text)){
-                echo'The body is empty. <br> <a href="sendEmail.html">Go back</a>';
+                echo'The body is empty.';
                 $output_form = true;
             }
             if(empty($subject)&& !(empty($text))){
-                echo' The subject is empty. <br> <a href="sendEmail.html">Go back</a>';
+                echo' The subject is empty.';
                 $output_form = true;
             }
             if(!(empty($subject))&&!(empty($text))){
@@ -51,7 +52,7 @@
           if($output_form){         
         ?>
 
-          <form method ="POST" action = "sendEmail.php">
+          <form method ="POST" action = "<?php echo $_SERVER['PHP_SELF']; ?>">
             <label for="subject">Subject of email:</label><br>
             <input type="text" id="subject" name="subject" size="60"><br>
             <label for="elvisMail">Body of Email: </label><br>
