@@ -5,6 +5,15 @@
             $from = 'elmer@makemeelvis.com';
             $subject = $_POST['subject'];
             $text = $_POST['elvisEmail'];
+            if(empty($subject)&& empty($text)){
+                echo'The subject and body are both empty. <br> <a href="sendEmail.html">Go back</a>';
+            }
+            if(!(empty($subject))&& empty($text)){
+                echo'The body is empty. <br> <a href="sendEmail.html">Go back</a>';
+            }
+            if(empty($subject)&& !(empty($text))){
+                echo' The subject is empty. <br> <a href="sendEmail.html">Go back</a>';
+            }
             if(!(empty($subject))&&!(empty($text))){
                 
                 $dbc = mysqli_connect('localhost','root','','elvis_store')
@@ -34,11 +43,7 @@
     //echo $row['first_name']. ' '. $row['last_name']. ' '. $row['email']. '<br>';
                 echo '<a href = "sendEmail.html">Go back</a>';
             }
-            if(empty($subject) || empty($text) ){
-                    echo 'The subject or text or both are empty. <br>'.
-                    "<a href=sendEmail.html>Go back</a>";
-                
-            }
+            
             
             
         ?>
