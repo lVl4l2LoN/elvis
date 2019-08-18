@@ -25,15 +25,22 @@
                             mail($to, $subject, $msg, 'From: '. $from);
 
                             echo 'Email sent to: '. $to.'<br>';
+                            
                         }
+                        mysqli_close($dbc);
+            //echo $row['first_name']. ' '. $row['last_name']. ' '. $row['email']. '<br>';
+                        echo '<a href = "sendEmail.html">Go back</a>';
                 }
              
 
             }
+            if(empty($subject) || empty($text) ){
+                    echo 'The subject or text or both are empty. <br>'.
+                    "<a href=sendEmail.html>Go back</a>";
+                
+            }
             
-            mysqli_close($dbc);
-            //echo $row['first_name']. ' '. $row['last_name']. ' '. $row['email']. '<br>';
-            echo '<a href = "sendEmail.html">Go back</a>'
+            
         ?>
     </body>
 </html>
