@@ -1,8 +1,11 @@
+<!doctype html>
 <html>
     <title>Elvis Email PHP script</title>
     <body>
         <h1>Make Me Elvis</h1>
         <?php
+            $subject='';
+            $text='';
             if(isset($_POST['submit'])){
                 $from = 'elmer@makemeelvis.com';
                 $subject = $_POST['subject'];
@@ -11,14 +14,17 @@
                 if(empty($subject)&& empty($text)){
                     echo'The subject and body are both empty.';
                     $output_form = true;
+                   
                 }
                 if(!(empty($subject))&& empty($text)){
                     echo'The body is empty.';
                     $output_form = true;
+                   
                 }
                 if(empty($subject)&& !(empty($text))){
                     echo' The subject is empty.';
                     $output_form = true;
+                    
                 }
                 if(!(empty($subject))&&!(empty($text))){
                     
@@ -47,7 +53,7 @@
                 
                     mysqli_close($dbc);
         //echo $row['first_name']. ' '. $row['last_name']. ' '. $row['email']. '<br>';
-                    //echo '<a href = "sendEmail.html">Go back</a>';
+                    echo '<a href = "sendEmail.php">Go back</a>';
                 }
             }
             else{
@@ -61,8 +67,7 @@
             <label for="subject">Subject of email:</label><br>
             <input type="text" id="subject" name="subject" size="60"value="<?php echo $subject; ?>"><br>
             <label for="elvisMail">Body of Email: </label><br>
-            <textarea id="elvisEmail" name="elvisEmail" rows="8" cols="60"> <?php echo $text; ?>
-            </textarea><br> 
+            <textarea id="elvisEmail" name="elvisEmail" rows="8" cols="60"><?php echo $text; ?></textarea><br> 
             <input type="submit" name="submit" value="Submit">
           </form>
         <?php
